@@ -45,10 +45,11 @@ Route::get('spesialis/delete/{id}', [SpesialisController::class, 'delete'])->mid
 
 // Kamar
 Route::resource('kamar', KamarController::class)->middleware('auth');
-Route::get('kamar/delete/{no}', [KamarController::class, 'delete'])->middleware('auth');
+Route::get('kamar/delete/{id}', [KamarController::class, 'delete'])->middleware('auth');
 
 // Dokter
 Route::resource('dokter', DokterController::class)->middleware('auth');
+Route::get('dokter/delete/{id}', [DokterController::class, 'delete'])->middleware('auth');
 
 // Hasil
 Route::resource('hasil', HasilController::class)->middleware('auth');

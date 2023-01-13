@@ -26,7 +26,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data</5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pasien</5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -88,44 +88,47 @@
                         </div>
                     </thead>
                 </table>
-                <table id="table-data" class="table table-bordered">
-                    <thead>
-                        <tr class="text-center">
-                            <th>ID Pasien</th>
-                            <th>Nama Pasien</th>
-                            <th>Umur </th>
-                            <th>Tanggal Lahir Pasien </th>
-                            <th>Alamat</th>
-                            <th>No Telp Pasien</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Tanggal</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @php
+            </div>
+            <table id="table-data" class="table table-bordered">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID Pasien</th>
+                        <th>Nama Pasien</th>
+                        <th>Umur Pasien</th>
+                        <th>Tanggal Lahir Pasien </th>
+                        <th>Alamat</th>
+                        <th>No Telp Pasien</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tanggal</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                @php
 
-                            $no = 1;
-                        @endphp
-                        @foreach ($pasien as $pasiens)
-                            <tr>
+                    $no = 1;
+                @endphp
+                @foreach ($pasien as $pasiens)
+                    <tr>
 
-                                <td>{{ $pasiens->id_pasien }}</td>
-                                <td>{{ $pasiens->nama_pasien }}</td>
-                                <td>{{ $pasiens->umur_pasien }}</td>
-                                <td>{{ $pasiens->tgl_pasien }}</td>
-                                <td>{{ $pasiens->alamat_pasien }}</td>
-                                <td>{{ $pasiens->no_tlp }}</td>
-                                <td>{{ $pasiens->jenis_kelamin_p }}</td>
-                                <td>{{ $pasiens->tanggal }}</td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" id="btn-edit-pasien"
+                        <td>{{ $pasiens->id_pasien }}</td>
+                        <td>{{ $pasiens->nama_pasien }}</td>
+                        <td>{{ $pasiens->umur_pasien }}</td>
+                        <td>{{ $pasiens->tgl_pasien }}</td>
+                        <td>{{ $pasiens->alamat_pasien }}</td>
+                        <td>{{ $pasiens->no_tlp }}</td>
+                        <td>{{ $pasiens->jenis_kelamin_p }}</td>
+                        <td>{{ $pasiens->tanggal }}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" id="btn-edit-pasien"
                                     class="btn btn-success editPasien-{{ $pasiens->id_pasien }}"
                                     onclick="updateConfirmation('{{ $pasiens->id_pasien }}')" data-toggle="modal"
-                                    data-target="#editPasienModal" data-nama_pasien={{ $pasiens->nama_pasien }}
-                                    data-umur_pasien={{ $pasiens->umur_pasien }} data-tgl_pasien={{ $pasiens->tgl_pasien }} data-alamat_pasien={{ $pasiens->alamat_pasien }}
-                                    data-no_tlp={{ $pasiens->no_tlp }} data-jenis_kelamin_p={{ $pasiens->jenis_kelamin_p }} data-tanggal={{ $pasiens->tanggal }}>
+                                    data-target="#editPasienModal" data-nama_pasien="{{ $pasiens->nama_pasien }}"
+                                    data-umur_pasien="{{ $pasiens->umur_pasien }}"
+                                    data-tgl_pasien="{{ $pasiens->tgl_pasien }}"
+                                    data-alamat_pasien="{{ $pasiens->alamat_pasien }}" data-no_tlp="{{ $pasiens->no_tlp }}"
+                                    data-jenis_kelamin_p="{{ $pasiens->jenis_kelamin_p }}"
+                                    data-tanggal="{{ $pasiens->tanggal }}">
                                     Edit
                                 </button>
                                 <a type="button" id="btn-hapus-pasien"
@@ -134,14 +137,15 @@
                                     href="{{ url('pasien/delete/' . $pasiens->id_pasien) }}">
                                     Hapus
                                 </a>
-                                    </div>
-                                </td>
-                            </tr>
-                    </tbody>
-                    @endforeach
-                </table>
-            </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tbody>
+                @endforeach
+                </tbody>
+            </table>
         </div>
+    </div>
     </div>
 
     {{-- EDIT MODAL --}}
@@ -149,61 +153,59 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Buku</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Pasien</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times; </span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" enctype="multipart/form-data">
+                    <form method="post" enctype="multipart/form-data" name="pasienFormUpdate" id="editForm">
                         @csrf
                         @method ('PATCH')
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="edit-nama_pasien">Nama</label>
+                                    <label for="edit-nama_pasien">Nama Pasien</label>
                                     <input type="text" class="form-control" name="nama_pasien" id="edit-nama_pasien"
-                                        required />
+                                        required/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="edit-umur_pasien">Umur</label>
-                                    <input type="text" class="form-control" name="umur" id="edit-umur_pasien"
-                                        required />
+                                    <label for="edit-umur_pasien">Umur Pasien</label>
+                                    <input type="text" class="form-control" name="umur_pasien" id="edit-umur_pasien"
+                                        required/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="edit-tgl_pasien">Tanggal Lahir</label>
-                                    <input type="date" class="form-control" name="tanggal" id="edit-tgl_pasien"
-                                        required />
+                                    <label for="edit-tgl_pasien">Tanggal Lahir Pasien</label>
+                                    <input type="date" class="form-control" name="tgl_pasien" id="edit-tgl_pasien"
+                                        required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-alamat_pasien">Alamat</label>
-                                    <textarea type="text" class="form-control" name="description" id="edit-alamat_pasien" value=""></textarea>
+                                    <textarea type="text" class="form-control" name="alamat_pasien" id="edit-alamat_pasien"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-no_tlp">No Telp Pasien</label>
-                                    <input type="text" class="form-control" name="nomor" id="edit-no_tlp"
-                                        required />
+                                    <input type="text" class="form-control" name="no_tlp" id="edit-no_tlp"
+                                        required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-jenis_kelamin_p">Jenis Kelamin</label>
-                                    <select name="jenis_kelamin" id="edit-jenis_kelamin_p" class="form-control">
+                                    <select name="jenis_kelamin_p" id="edit-jenis_kelamin_p" class="form-control">
                                         <option value="">Pilih Jenis Kelamin....</option>
                                         <option value="laki-laki">Laki - Laki</option>
                                         <option value="perempuan">Perempuan</option>
                                     </select>
-                                </div>
-                                <div class="form-group">
                                     <label for="edit-tanggal">Tanggal </label>
                                     <input type="date" class="form-control" name="tanggal" id="edit-tanggal"
-                                        required />
+                                        required/>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" name="id" id="edit-id" />
-                            <input type="hidden" name="old_cover" id="edit-old-cover" />
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                             <button type="submit" class="btn btn-success">Update</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -237,7 +239,7 @@
                     $('#saveBtn').html('Save Changes');
                 }
             });
-            location.reload()
+            location.reload();
         });
 
         function updateConfirmation(id) {

@@ -5,10 +5,10 @@
 @section('content_header')
 <div class="container-fluid">
     <div class="alert alert-primary text-center" role="alert">
-    This is a primary alert—check it out!
+    Tabel Rawat
     </div>
 </div>
-@stop   
+@stop
 
 @section('content')
 <div class="container-fluid">
@@ -22,6 +22,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-outline-success mr-auto">Cek Kode</button>
+                <button type="submit" class="btn btn-outline-primary mr-auto">Refresh</button>
             </div>
         </div>
         <div class="col-9 border">
@@ -79,7 +80,7 @@
             <div class="modal-footer">
                 <div class="mr-auto">
                     <button type="submit" class="btn btn-success mr-auto">Simpan Data</button>
-                    <button type="submit" class="btn btn-primary mr-auto">Simpan Data</button>
+                    <button type="submit" class="btn btn-outline-primary mr-auto">Tampilkan Detail</button>
                 </div>
             </div>
         </div>

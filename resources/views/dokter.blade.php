@@ -95,7 +95,6 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
                 @php
 
                     $no = 1;
@@ -114,12 +113,12 @@
                                 <button type="button" id="btn-edit-dokter"
                                     class="btn btn-success editDokter-{{ $dokters->id_dokter }}"
                                     onclick="updateConfirmation('{{ $dokters->id_dokter }}')" data-toggle="modal"
-                                    data-target="#editDokterModal" data-id={{ $dokters->id_dokter }}
-                                    data-nama_dokter={{ $dokters->nama_dokter }}
-                                    data-id_spesialis={{ $dokters->id_spesialis }}
-                                    data-jam_praktek={{ $dokters->jam_praktek }}
-                                    data-jenis_kelamin_d={{ $dokters->jenis_kelamin_d }}
-                                    data-tanggal={{ $dokters->tanggal }}>
+                                    data-target="#editDokterModal" data-id="{{ $dokters->id_dokter }}"
+                                    data-nama_dokter="{{ $dokters->nama_dokter }}"
+                                    data-id_spesialis="{{ $dokters->id_spesialis }}"
+                                    data-jam_praktek="{{ $dokters->jam_praktek }}"
+                                    data-jenis_kelamin_d="{{ $dokters->jenis_kelamin_d }}"
+                                    data-tanggal="{{ $dokters->tanggal }}">
                                     Edit
                                 </button>
                                 <a type="button" id="btn-hapus-dokter"
@@ -131,6 +130,7 @@
                             </div>
                         </td>
                     </tr>
+                    <tbody>
                     @endforeach
                 </tbody>
             </table>
@@ -143,7 +143,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Data Buku</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Data Dokter</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times; </span>
                 </button>
@@ -156,17 +156,25 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="edit-nama_dokter">Nama Dokter</label>
-                                <input type="text" class="form-control" name="edit-nama_dokter" id="edit-nama_dokter"
+                                <input type="text" class="form-control" name="nama_dokter" id="edit-nama_dokter"
                                     required />
                             </div>
                             <div class="form-group">
+                                <label for="edit-id_spesialis">ID Spesialis</label>
+                                    <select class="form-control" name="id_spesialis" id="edit-id_spesialis">
+                                        @foreach ( $spesialis as $s )
+                                        <option value="{{$s->id_spesialis}}">{{ $s->nama_spesialis }}</option>
+                                    @endforeach
+                                    </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="edit-jam_praktek">Jam Praktek</label>
-                                <input type="year" class="form-control" name="edit-jam_praktek" id="edit-jam_praktek"
+                                <input type="year" class="form-control" name="jam_praktek" id="edit-jam_praktek"
                                     required />
                             </div>
                             <div class="form-group">
                                 <label for="edit-jenis_kelamin_d">Jenis Kelamin</label>
-                                <select name="edit-jenis_kelaimin_d" class="form-control" id="edit-jenis_kelamin_d">
+                                <select name="jenis_kelamin_d" class="form-control" id="edit-jenis_kelamin_d">
                                     <option value="">Pilih Jenis Kelamin....</option>
                                     <option value="laki-laki">Laki - Laki</option>
                                     <option value="perempuan">Perempuan</option>
@@ -178,7 +186,6 @@
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="id" id="edit-id" />
-                        <input type="hidden" name="old_cover" id="edit-old-cover" />
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                         <button type="submit" class="btn btn-success">Update</button>
                     </div>

@@ -4,7 +4,7 @@
 
 @section('content_header')
 <h1 class="m-0 text-dark">Data Penunjang</h1>
-@stop   
+@stop
 
 @section('content')
 <div class="container-fluid">

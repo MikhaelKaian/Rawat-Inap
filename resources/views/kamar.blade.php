@@ -7,7 +7,6 @@
 @stop
 
 @section('content')
-
     <?php
     $params_id = null;
 
@@ -28,9 +27,9 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kamar</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
                                     <div class="modal-body">
                                         <form id="kamarForm" name="kamarForm" method="post" enctype="multipart/form-data">
@@ -82,7 +81,7 @@
                     </thead>
                 </table>
             </div>
-                <table id="table-data" class="table table-bordered">
+            <table id="table-data" class="table table-bordered">
                 <thead>
                     <tr class="text-center">
                         <th>NO</th>
@@ -101,7 +100,6 @@
                 @foreach ($kamar as $kamars)
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $kamars->id_kamar }}</td>
                         <td>{{ $kamars->no_kamar }}</td>
                         <td>{{ $kamars->nama_kamar }}</td>
                         <td>{{ $kamars->kelas_kamar }}</td>
@@ -109,25 +107,30 @@
                         <td>{{ $kamars->tanggal }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" id="btn-edit-kamar" class="btn btn-success editKamar-{{ $kamars->id_kamar }}" onclick="updateConfirmation('{{ $kamars->id_kamar }}')"
-                                    data-toggle="modal" data-target="#editKamarModal" data-id={{ $kamars->id_kamar }}
-                                    data-no_kamar={{ $kamars->no_kamar }} data-nama_kamar={{ $kamars->nama_kamar }}
-                                    data-kelas_kamar={{ $kamars->kelas_kamar }} data-status_kamar={{ $kamars->status_kamar}}
-                                    data-tanggal={{ $kamars->tanggal }}>
+                                <button type="button" id="btn-edit-kamar"
+                                    class="btn btn-success editKamar-{{ $kamars->id_kamar }}"
+                                    onclick="updateConfirmation('{{ $kamars->id_kamar }}')" data-toggle="modal"
+                                    data-target="#editKamarModal" data-id="{{ $kamars->id_kamar }}"
+                                    data-no_kamar="{{ $kamars->no_kamar }}" data-nama_kamar="{{ $kamars->nama_kamar }}"
+                                    data-kelas_kamar="{{ $kamars->kelas_kamar }}"
+                                    data-status_kamar="{{ $kamars->status_kamar }}" data-tanggal="{{ $kamars->tanggal }}">
                                     Edit
                                 </button>
-                                <a type="button" id="btn-hapus-kamar" class="btn btn-danger hapusKamar-{{ $kamars->id_kamar }}"  onclick="return confirm('Apakah Kamu yakin?')" href="{{url('kamar/delete/'.$kamars->id_kamar)}}">
+                                <a type="button" id="btn-hapus-kamar"
+                                    class="btn btn-danger hapusKamar-{{ $kamars->id_kamar }}"
+                                    onclick="return confirm('Apakah Kamu yakin?')"
+                                    href="{{ url('kamar/delete/' . $kamars->id_kamar) }}">
                                     Hapus
                                 </a>
                             </div>
                         </td>
                     </tr>
-                        <tbody>
+                    <tbody>
                 @endforeach
-                        </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
+    </div>
     </div>
 
     {{-- Edit Modal --}}
@@ -135,7 +138,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Buku</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Kamar</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times; </span>
                     </button>
@@ -148,16 +151,17 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="edit-no_kamar">No Kamar</label>
-                                    <input type="text"class="form-control" name="no_kamar" id="edit-no_kamar" required />
+                                    <input type="text"class="form-control" name="no_kamar" id="edit-no_kamar"
+                                        required />
                                 </div>
-                                    <div class="form-group">
-                                        <label for="edit-nama_kamar">Nama Kamar</label>
-                                        <input type="text"class="form-control" name="nama_kamar" id="edit-nama_kamar"
-                                            required />
-                                    </div>
+                                <div class="form-group">
+                                    <label for="edit-nama_kamar">Nama Kamar</label>
+                                    <input type="text"class="form-control" name="nama_kamar" id="edit-nama_kamar"
+                                        required />
+                                </div>
                                 <div class="form-group">
                                     <label for="edit-kelas_kamar">Kelas Kamar</label>
-                                    <select name="kelas_kamar" class="form-control" id="edit-kelas_kamar" required >
+                                    <select name="kelas_kamar" class="form-control" id="edit-kelas_kamar" required>
                                         <option value="">== Pilih Kelas ==</option>
                                         <option value="kelas_I">Kelas I</option>
                                         <option value="kelas_II">Kelas II</option>
@@ -167,7 +171,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="edit-status_kamar">Status</label>
-                                    <select name="status_kamar" class="form-control" id="edit-status_kamar" required >
+                                    <select name="status_kamar" class="form-control" id="edit-status_kamar" required>
                                         <option value="">== Pilih Status ==</option>
                                         <option value="terisi">Sudah Terisi</option>
                                         <option value="kosong">Kosong</option>
@@ -192,7 +196,6 @@
 
 @push('js')
     <script>
-
         // create
         $(function() {})
 
@@ -221,12 +224,12 @@
         });
 
         function updateConfirmation(id) {
-        $("#edit-no_kamar").val( $(".editKamar-" + id).attr("data-no_kamar"))
-        $("#edit-nama_kamar").val( $(".editKamar-" + id).attr("data-nama_kamar"))
-        $("#edit-kelas_kamar").val( $(".editKamar-" + id).attr("data-kelas_kamar"))
-        $("#edit-status_kamar").val( $(".editKamar-" + id).attr("data-status_kamar"))
-        $("#edit-tanggal").val( $(".editKamar-" + id).attr("data-tanggal"))
-        $("#editForm").attr("action","{{ url('kamar/') }}/" + id)
-    }
+            $("#edit-no_kamar").val($(".editKamar-" + id).attr("data-no_kamar"))
+            $("#edit-nama_kamar").val($(".editKamar-" + id).attr("data-nama_kamar"))
+            $("#edit-kelas_kamar").val($(".editKamar-" + id).attr("data-kelas_kamar"))
+            $("#edit-status_kamar").val($(".editKamar-" + id).attr("data-status_kamar"))
+            $("#edit-tanggal").val($(".editKamar-" + id).attr("data-tanggal"))
+            $("#editForm").attr("action", "{{ url('kamar/') }}/" + id)
+        }
     </script>
 @endpush

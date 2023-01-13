@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableHasil extends Migration
+class CreateHasilTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreateTableHasil extends Migration
      */
     public function up()
     {
-        Schema::create('table_hasil', function (Blueprint $table) {
+        Schema::create('hasil', function (Blueprint $table) {
             $table->bigIncrements('id_hasil');
 
             $table->bigInteger('id_dokter')->unsigned();
             $table->foreign('id_dokter')->references('id_dokter')->on('dokter')->onDelete('cascade');
-            
+            $table->bigInteger('id_pasien')->unsigned();
+            $table->foreign('id_pasien')->references('id_pasien')->on('pasien')->onDelete('cascade');
+
             $table->integer('alamat');
             $table->integer('lama_inap');
-            $table->integer('keterangan');
+            $table->enum('keterangan', ['rawat_inap', 'pulang']);
             $table->date('tanggal');
             $table->timestamps();
         });
@@ -34,6 +36,6 @@ class CreateTableHasil extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_hasil');
+        Schema::dropIfExists('hasil');
     }
 }

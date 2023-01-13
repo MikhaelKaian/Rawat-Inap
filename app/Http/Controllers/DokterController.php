@@ -43,33 +43,34 @@ class DokterController extends Controller
     }
 
     public function update(Request $req, $id){
-            $dokter = Dokter::where("id_dokter","=",$id)->first();
+        $dokter = Dokter::where("id_dokter","=",$id)->first();
+        $validate = $req->validate([
+            'nama_dokter' => 'required|max:255',
+            'id_spesialis' => 'required',
+            'jam_praktek' => 'required',
+            'jenis_kelamin_d' => 'required',
+            'tanggal' => 'required',
+        ]);
 
-            $validate = $req->validate([
-                'nama_dokter' => 'required|max:20',
-                'jam_praktek' => 'required',
-                'jenis_kelamin_d' => 'required',
-                'tanggal' => 'required',
-            ]);
+        $dokter->nama_dokter = $req->get('nama_dokter');
+        $dokter->id_spesialis = $req->get('id_spesialis');
+        $dokter->jam_praktek = $req->get('jam_praktek');
+        $dokter->jenis_kelamin_d = $req->get('jenis_kelamin_d');
+        $dokter->tanggal = $req->get('tanggal');
 
-            $dokter->nama_dokter = $req->get('nama_dokter');
-            $dokter->jam_prakter = $req->get('jam_prakter');
-            $dokter->jenis_kelamin_d = $req->get('jenis_kelamin_d');
-            $dokter->tanggal = $req->get('tanggal');
-
-            $dokter->save();
+        $dokter->save();
 
         $notification = array(
             'message' => 'Data Dokter berhasil diubah',
             'alert-type' => 'success'
         );
 
-        return redirect('Dokter')->with($notification);
+        return redirect('dokter')->with($notification);
     }
 
     public function delete($id){
 
-        $kamar = Dokter::where("id_dokter","=",$id)->delete();
+        $dokter = Dokter::where("id_dokter","=",$id)->delete();
 
         $notification = array(
             'message' => 'Data Dokter berhasil dihapus',

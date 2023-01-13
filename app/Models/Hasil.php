@@ -11,10 +11,10 @@ class Hasil extends Model
     use HasFactory;
     protected $table = 'hasil';
 
-    protected $primaryKey = 'id_kamar';
+    protected $primaryKey = 'id_hasil';
 
 
     protected $fillable = [
-        'no_kamar', 'nama_kamar', 'kelas_kamar', 'status_kamar', 'tanggal'
+        'id_dokter', 'alamat', 'lama_inap', 'keterangan', 'tanggal'
     ];
 }

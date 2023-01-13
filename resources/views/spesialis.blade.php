@@ -81,8 +81,8 @@
                                 <button type="button" id="btn-edit-spesialis"
                                     class="btn btn-success editSpesialis-{{ $spesialiss->id_spesialis }}"
                                     onclick="updateConfirmation('{{ $spesialiss->id_spesialis }}')" data-toggle="modal"
-                                    data-target="#editSpesialisModal" data-nama_spesialis={{ $spesialiss->nama_spesialis }}
-                                    data-tanggal={{ $spesialiss->tanggal }}>
+                                    data-target="#editSpesialisModal" data-nama_spesialis="{{ $spesialiss->nama_spesialis }}"
+                                    data-tanggal="{{ $spesialiss->tanggal }}">
                                     Edit
                                 </button>
                                 <a type="button" id="btn-hapus-spesialis"

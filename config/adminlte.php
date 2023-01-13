@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Rawat IhNap',
+    'title' => 'Rawat Inap',
     'title_prefix' => '',
     'title_postfix' => '',
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableLaporan extends Migration
+class CreateLaporanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableLaporan extends Migration
      */
     public function up()
     {
-        Schema::create('table_laporan', function (Blueprint $table) {
+        Schema::create('laporan', function (Blueprint $table) {
             $table->id('id_laporan');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateTableLaporan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_laporan');
+        Schema::dropIfExists('laporan');
     }
 }
