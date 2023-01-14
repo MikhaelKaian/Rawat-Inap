@@ -21,7 +21,7 @@ class CreateHasilTable extends Migration
             $table->bigInteger('id_pasien')->unsigned();
             $table->foreign('id_pasien')->references('id_pasien')->on('pasien')->onDelete('cascade');
 
-            $table->integer('alamat');
+            $table->text('alamat');
             $table->integer('lama_inap');
             $table->enum('keterangan', ['rawat_inap', 'pulang']);
             $table->date('tanggal');
