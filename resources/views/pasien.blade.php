@@ -37,6 +37,11 @@
                                             <div class="modal-body">
                                                 @csrf
                                                 <div class="form-group">
+                                                    <label for="kode_pasien">Kode Pasien</label>
+                                                    <input type="text"class="form-control" name="kode_pasien"
+                                                        id="kode_pasien" readonly/>
+                                                </div>
+                                                <div class="form-group">
                                                     <label for="nama_pasien">Nama Pasien</label>
                                                     <input type="text"class="form-control" name="nama_pasien"
                                                         id="nama_pasien" required />
@@ -93,6 +98,7 @@
                 <thead>
                     <tr class="text-center">
                         <th>ID Pasien</th>
+                        <th>Kode Pasien</th>
                         <th>Nama Pasien</th>
                         <th>Umur Pasien</th>
                         <th>Tanggal Lahir Pasien </th>
@@ -111,6 +117,7 @@
                     <tr>
 
                         <td>{{ $pasiens->id_pasien }}</td>
+                        <td>{{ $pasiens->kode_pasien }}</td>
                         <td>{{ $pasiens->nama_pasien }}</td>
                         <td>{{ $pasiens->umur_pasien }}</td>
                         <td>{{ $pasiens->tgl_pasien }}</td>
@@ -217,6 +224,8 @@
     <script>
         // create
         $(function() {})
+
+        $("#kode_pasien").val("P"+Math.floor(100000 + Math.random() * 900000))
 
         $('#saveBtn').click(function(e) {
             e.preventDefault();

@@ -6,7 +6,16 @@
     <h1 class="m-0 text-dark">Hasil Periksa</h1>
 @stop
 
+
+
 @section('content')
+
+        @if (\Session::has('success'))
+            <div class="alert alert-success">
+                {!! \Session::get('success') !!}
+            </div>
+        @endif
+
     <?php
     $params_id = null;
 
@@ -19,11 +28,11 @@
                     <div class="bg-primary p-2 mb-3 text-center">
                         <label for="hasilForm" name="hasilForm" id="hasilForm">Form Hasil Periksa</label>
                     </div>
-                    <div class="row">
+                    <div class="row col-md-12">
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="daftar_dokter">Daftar Dokter</label>
-                                <select class="form-control" name="id_dokter" id="daftar_dokter">
+                                <label for="id_dokter">Daftar Dokter</label>
+                                <select class="form-control" name="id_dokter" id="id_dokter">
                                     <option value="">== Pilih Daftar Dokter ==</option>
                                     @foreach ($dokter as $d)
                                         <option value="{{ $d->id_dokter }}">{{ $d->nama_dokter }} </option>
@@ -31,14 +40,15 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="daftar_pasien">Daftar Pasien</label>
-                                <select class="form-control" name="daftar_pasien" id="daftar_pasien">
+                                <label for="id_pasien">Daftar Pasien</label>
+                                <select class="form-control" name="id_pasien" id="id_pasien" onchange="fill_kode_pasien()">
                                     <option value="">== Pilih Daftar Pasien ==</option>
                                     @foreach ($pasien as $p)
-                                        <option value="{{ $p->id_pasien }}">{{ $p->nama_pasien }} </option>
+                                        <option value="{{ $p->id_pasien }}" data-kode_pasien="{{ $p->kode_pasien }}">{{ $p->nama_pasien }} </option>
                                     @endforeach
                                 </select>
                             </div>
+                            <input type="hidden" name="kode_pasien" id="kode_pasien">
                             <div class="form-group">
                                 <label for="alamat">Alamat</label>
                                 <select class="form-control" name="alamat" id="alamat">
@@ -50,12 +60,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row col-md-12">
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="tahun">Keterangan</label>
+                                        <label for="keterangan">Keterangan</label>
                                         <select name="keterangan" class="form-control" id="keterangan">
                                             <option value="rawat_inap">Rawat Inap</option>
                                             <option value="pulang">Pulang</option>
@@ -88,6 +98,10 @@
 @push('js')
     <script>
         //create
+        function fill_kode_pasien(){
+            $("#kode_pasien").val($("#id_pasien").find(":selected").attr("data-kode_pasien"))
+        }
+
         $(function() {})
 
         $('#saveBtn').click(function(e) {
@@ -111,4 +125,5 @@
             });
             location.reload();
         });
-    @endpush
+    </script>
+@endpush
