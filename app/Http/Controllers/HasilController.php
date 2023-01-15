@@ -30,6 +30,7 @@ class HasilController extends Controller
         ]);
 
         Hasil::Create([
+            'kode_pasien' => $request->kode_pasien,
             'id_dokter' => $request->id_dokter,
             'id_pasien' => $request->id_pasien,
             'alamat' => $request->alamat,
@@ -38,11 +39,6 @@ class HasilController extends Controller
             'tanggal' => $request->tanggal
         ]);
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Data Berhasil Disimpan!',
-            'data'    => $request
-        ]);
-        return('id_hasil')->with($notification);
+        return redirect()->back()->with('success', 'Hasil periksan berhasil di simpan, ingat kode pasie : '.$request->kode_pasien);
     }
 }

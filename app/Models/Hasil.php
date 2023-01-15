@@ -15,6 +15,6 @@ class Hasil extends Model
 
 
     protected $fillable = [
-        'id_dokter', 'alamat', 'lama_inap', 'keterangan', 'tanggal'
+        'id_dokter','id_pasien','kode_pasien', 'alamat', 'lama_inap', 'keterangan', 'tanggal'
     ];
 }

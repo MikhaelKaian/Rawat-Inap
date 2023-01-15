@@ -27,6 +27,7 @@ class PasienController extends Controller
         ]);
 
         Pasien::Create([
+            'kode_pasien' => $request->kode_pasien,
             'nama_pasien' => $request->nama_pasien,
             'umur_pasien' => $request->umur_pasien,
             'tgl_pasien' => $request->tgl_pasien,

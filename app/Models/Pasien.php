@@ -15,6 +15,6 @@ class Pasien extends Model
 
 
     protected $fillable = [
-        'nama_pasien', 'umur_pasien','tgl_pasien','alamat_pasien','no_tlp','jenis_kelamin_p','tanggal'
+        'kode_pasien','nama_pasien', 'umur_pasien','tgl_pasien','alamat_pasien','no_tlp','jenis_kelamin_p','tanggal'
     ];
 }

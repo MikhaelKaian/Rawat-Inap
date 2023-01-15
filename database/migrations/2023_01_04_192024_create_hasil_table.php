@@ -20,7 +20,7 @@ class CreateHasilTable extends Migration
             $table->foreign('id_dokter')->references('id_dokter')->on('dokter')->onDelete('cascade');
             $table->bigInteger('id_pasien')->unsigned();
             $table->foreign('id_pasien')->references('id_pasien')->on('pasien')->onDelete('cascade');
-
+            $table->string('kode_pasien');
             $table->text('alamat');
             $table->integer('lama_inap');
             $table->enum('keterangan', ['rawat_inap', 'pulang']);
