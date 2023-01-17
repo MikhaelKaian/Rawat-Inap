@@ -34,12 +34,12 @@
         <div class="col-4 border">
             <div class="form-group">
                 <div class="bg-danger p-2 mb-3 text-center">
-                    <label for="penulis">Laporan kamar</label>
+                    <label for="penulis">Laporan Hasil Periksa</label>
                 </div>
                 <div class="row">
                     <div class="col-6">
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-outline-danger w-100">Pilih</button>
+                        <a href="{{ route('admin.print.hasil')}}" target="_blank" class="btn btn-outline-primary w-100"><i class="fa fa-print"></i>Cetak PDF</a>
                         </div>
                     </div>
                 </div>
