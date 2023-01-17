@@ -14,4 +14,12 @@ class LaporanController extends Controller
         $laporan = Laporan::all();
         return view('laporan', compact('user', 'laporan'));
     }
+
+    public function print_pasiens()
+        {
+            $pasiens = Pasien::all();
+
+            $pdf = PDF::loadview('print_pasiens', ['pasien'=>$pasiens]);
+            return $pdf->stream('data_pasien.pdf');
+        }
 }
