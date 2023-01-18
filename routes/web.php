@@ -64,3 +64,7 @@ Route::resource('pembayaran', PembayaranController::class)->middleware('auth');
 Route::resource('laporan', LaporanController::class)->middleware('auth');
 Route::get('admin/print_pasien', [LaporanController::class, 'print_pasiens'])->name('admin.print.pasien')->middleware('is_admin');
 Route::get('admin/print_hasil', [LaporanController::class, 'print_hasil'])->name('admin.print.hasil')->middleware('is_admin');
+// Export
+Route::get('admin/export', [LaporanController::class, 'export'])->name('admin.export')->middleware('is_admin');
+Route::get('admin/export/hasil', [LaporanController::class, 'export'])->name('admin.export.hasil')->middleware('is_admin');
+

@@ -15,9 +15,14 @@
                     <label for="penulis">Laporan Pasien</label>
                 </div>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="modal-footer">
                             <a href="{{ route('admin.print.pasien')}}" target="_blank" class="btn btn-outline-primary w-100"><i class="fa fa-print"></i>Cetak PDF</a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="modal-footer">
+                            <a href="{{ route('admin.export')}}" target="_blank" class="btn btn-outline-primary w-100">Export</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +44,12 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="modal-footer">
-                        <a href="{{ route('admin.print.hasil')}}" target="_blank" class="btn btn-outline-primary w-100"><i class="fa fa-print"></i>Cetak PDF</a>
+                        <a href="{{ route('admin.print.hasil')}}" target="_blank" class="btn btn-outline-danger w-100"><i class="fa fa-print"></i>Cetak PDF</a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="modal-footer">
+                            <a href="{{ route('admin.export.hasil')}}" target="_blank" class="btn btn-outline-danger w-100">Export</a>
                         </div>
                     </div>
                 </div>
