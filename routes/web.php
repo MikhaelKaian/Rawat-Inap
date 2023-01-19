@@ -10,6 +10,7 @@ use App\Http\Controllers\HasilController;
 use App\Http\Controllers\RawatController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -68,3 +69,6 @@ Route::get('admin/print_hasil', [LaporanController::class, 'print_hasil'])->name
 Route::get('admin/export', [LaporanController::class, 'export'])->name('admin.export')->middleware('is_admin');
 Route::get('admin/export/hasil', [LaporanController::class, 'export'])->name('admin.export.hasil')->middleware('is_admin');
 
+//Email
+Route::get('contact', [ContactController::class, 'create']);
+Route::post('/contact',[ContactController::class, 'send'])->name('contact.send');
