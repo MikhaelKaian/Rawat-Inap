@@ -20,7 +20,7 @@ class HasilExport implements FromArray, WithHeadings, ShouldAutoSize
 
     public function array (): array
     {
-        return Pasien::getDataHasil();
+        return Hasil::getDataHasil();
     }
 
     public function headings (): array

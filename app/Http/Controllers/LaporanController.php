@@ -10,7 +10,10 @@ use PDF;
 use App\Models\Laporan;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PasiensExport;
+use App\Exports\HasilExport;
+use App\Exports\PembayaranExport;
 use App\Imports\PasiensImport;
+use App\Models\Pembayaran;
 
 class LaporanController extends Controller
 {
@@ -40,13 +43,34 @@ class LaporanController extends Controller
         $pdf = PDF::loadview('print_hasil', ['hasil'=>$hasil])->setPaper('a4', 'landscape');;
         return $pdf->stream('data_hasil.pdf');
     }
+
+    public function print_pembayaran()
+    {
+        $pembayaran = Pembayaran::all();
+
+        $pdf = PDF::loadview('print_pembayaran', ['hasil'=>$pembayaran])->setPaper('a4', 'landscape');;
+        return $pdf->stream('data_pembayaran.pdf');
+    }
     
     // Export Laporan Pasien
-    public function export()
+    public function pasienexport()
         {
             return Excel::download(new PasiensExport, 'pasiens.xlsx');
-            return Excel::download(new HasilExport, 'hasil.xlsx');
         }
+    
+    // Export Laporan Hasil
+        public function hasilexport()
+        {
+           
+            return Excel::download(new HasilExport, 'hasil.xlsx');
+        }    
+    
+        public function pembayaranexport()
+        {
+           
+            return Excel::download(new PembayaranExport, 'pembayaran.xlsx');
+        }    
+
         public function import (Request $req)
         {
             Excel::import(new PasiensImport, $req->file('file'));

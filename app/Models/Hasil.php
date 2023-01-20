@@ -19,7 +19,7 @@ class Hasil extends Model
         'id_dokter','id_pasien','kode_pasien', 'alamat', 'lama_inap', 'keterangan', 'fil_created'
     ];
 
-    public static function getDataPasien()
+    public static function getDataHasil()
     {
     $hasil = Hasil::all();
 
@@ -35,6 +35,6 @@ class Hasil extends Model
         $hasil_filter[$i]['keterangan'] = $hasil[$i]->keterangan;
         $hasil_filter[$i]['fil_created'] = $hasil[$i]->fil_created;
         }
-        return $pasiens_filter;
+        return $hasil_filter;
     }
 }

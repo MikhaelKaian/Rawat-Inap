@@ -65,9 +65,12 @@ Route::resource('pembayaran', PembayaranController::class)->middleware('auth');
 Route::resource('laporan', LaporanController::class)->middleware('auth');
 Route::get('admin/print_pasien', [LaporanController::class, 'print_pasiens'])->name('admin.print.pasien')->middleware('is_admin');
 Route::get('admin/print_hasil', [LaporanController::class, 'print_hasil'])->name('admin.print.hasil')->middleware('is_admin');
+Route::get('admin/print_pembayaran', [LaporanController::class, 'print_pembayaran'])->name('admin.print.pembayaran')->middleware('is_admin');
+
 // Export
-Route::get('admin/export', [LaporanController::class, 'export'])->name('admin.export')->middleware('is_admin');
-Route::get('admin/export/hasil', [LaporanController::class, 'export'])->name('admin.export.hasil')->middleware('is_admin');
+Route::get('admin/export', [LaporanController::class, 'pasienexport'])->name('admin.export')->middleware('is_admin');
+Route::get('admin/export/hasil', [LaporanController::class, 'hasilexport'])->name('admin.export.hasil')->middleware('is_admin');
+Route::get('admin/export/pembayaran', [LaporanController::class, 'pembayaranexport'])->name('admin.export.pembayaran')->middleware('is_admin');
 
 //Email
 Route::get('contact', [ContactController::class, 'create']);
