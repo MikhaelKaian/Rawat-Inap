@@ -24,7 +24,7 @@ class DokterController extends Controller
             'id_spesialis' => 'required|max:255',
             'jam_praktek' => 'required',
             'jenis_kelamin_d' => 'required',
-            'tanggal' => 'required',
+            'fil_created' => 'required',
         ]);
 
         Dokter::Create([
@@ -32,7 +32,7 @@ class DokterController extends Controller
             'id_spesialis' => $request->id_spesialis,
             'jam_praktek' => $request->jam_praktek,
             'jenis_kelamin_d' => $request->jenis_kelamin_d,
-            'tanggal' => $request->tanggal
+            'fil_created' => $request->fil_created
         ]);
 
         return response()->json([
@@ -49,14 +49,12 @@ class DokterController extends Controller
             'id_spesialis' => 'required',
             'jam_praktek' => 'required',
             'jenis_kelamin_d' => 'required',
-            'tanggal' => 'required',
         ]);
 
         $dokter->nama_dokter = $req->get('nama_dokter');
         $dokter->id_spesialis = $req->get('id_spesialis');
         $dokter->jam_praktek = $req->get('jam_praktek');
         $dokter->jenis_kelamin_d = $req->get('jenis_kelamin_d');
-        $dokter->tanggal = $req->get('tanggal');
 
         $dokter->save();
 

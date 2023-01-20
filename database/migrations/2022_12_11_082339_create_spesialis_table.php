@@ -16,7 +16,7 @@ class CreateSpesialisTable extends Migration
         Schema::create('spesialis', function (Blueprint $table) {
             $table->bigIncrements('id_spesialis');
             $table->string('nama_spesialis', 50);
-            $table->date('tanggal');
+            $table->timestamp('fil_created');
         });
     }
 

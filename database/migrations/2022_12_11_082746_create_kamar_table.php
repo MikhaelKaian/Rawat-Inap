@@ -19,8 +19,7 @@ class CreateKamarTable extends Migration
             $table->string('nama_kamar',50);
             $table->string('kelas_kamar',20);
             $table->enum('status_kamar', ['terisi', 'kosong']);
-            $table->date('tanggal');
-            $table->timestamps();
+            $table->timestamp('fil_created');
         });
     }
 

@@ -23,8 +23,7 @@ class CreatePembayaranTable extends Migration
             $table->integer('jumlah_p_tindakan');
             $table->integer('jumlah_p_inap');
             $table->integer('total');
-            $table->date('tanggal');
-            $table->timestamps();
+            $table->timestamp('fil_created');
         });
     }
 

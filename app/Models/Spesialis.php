@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Spesialis extends Model
 {
-    public $timestamps = false;
+    public $timestamps = false; 
+    const CREATED_AT = 'fil_created';
     use HasFactory;
 
     protected $table = 'spesialis';
@@ -15,6 +16,6 @@ class Spesialis extends Model
 
 
     protected $fillable = [
-        'nama_spesialis', 'tanggal'
+        'nama_spesialis', 'fil_created'
     ];
 }

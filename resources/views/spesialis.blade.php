@@ -40,9 +40,6 @@
                                                     <label for="nama_spesialis">Nama Spesialis</label>
                                                     <input type="text"class="form-control" name="nama_spesialis"
                                                         id="nama_spesialis" required />
-                                                    <label for="tanggal">Tanggal </label>
-                                                    <input type="date" class="form-control" name="tanggal" id="tanggal"
-                                                        required />
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -75,14 +72,14 @@
                     <tr>
                         <td>{{ $no++ }}</td>
                         <td>{{ $spesialiss->nama_spesialis }}</td>
-                        <td>{{ $spesialiss->tanggal }}</td>
+                        <td>{{ $spesialiss->fil_created }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" id="btn-edit-spesialis"
                                     class="btn btn-success editSpesialis-{{ $spesialiss->id_spesialis }}"
                                     onclick="updateConfirmation('{{ $spesialiss->id_spesialis }}')" data-toggle="modal"
                                     data-target="#editSpesialisModal" data-nama_spesialis="{{ $spesialiss->nama_spesialis }}"
-                                    data-tanggal="{{ $spesialiss->tanggal }}">
+                                    data-tanggal="{{ $spesialiss->fil_created }}">
                                     Edit
                                 </button>
                                 <a type="button" id="btn-hapus-spesialis"
@@ -125,9 +122,6 @@
                                     <label for="edit-nama-spesialis">Nama Spesialis</label>
                                     <input type="text" class="form-control" name="nama_spesialis"
                                         id="edit-nama_spesialis" required />
-                                    <label for="edit-tanggal">Tanggal </label>
-                                    <input type="date" class="form-control" name="tanggal" id="tanggal-spesialis"
-                                        required />
                                 </div>
                             </div>
                         </div>
@@ -174,7 +168,6 @@
         //update
         function updateConfirmation(id) {
             $("#edit-nama_spesialis").val($(".editSpesialis-" + id).attr("data-nama_spesialis"))
-            $("#tanggal-spesialis").val($(".editSpesialis-" + id).attr("data-tanggal"))
             $("#editForm").attr("action", "{{ url('spesialis/') }}/" + id)
         }
     </script>

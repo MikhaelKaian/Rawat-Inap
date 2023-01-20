@@ -24,8 +24,7 @@ class CreateHasilTable extends Migration
             $table->text('alamat');
             $table->integer('lama_inap');
             $table->enum('keterangan', ['rawat_inap', 'pulang']);
-            $table->date('tanggal');
-            $table->timestamps();
+            $table->timestamp('fil_created');
         });
     }
 

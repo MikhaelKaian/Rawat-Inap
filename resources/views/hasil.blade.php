@@ -70,8 +70,6 @@
                                             <option value="rawat_inap">Rawat Inap</option>
                                             <option value="pulang">Pulang</option>
                                         </select>
-                                        <label for="tanggal">Tanggal </label>
-                                        <input type="date" class="form-control" name="tanggal" id="tanggal" required />
                                     </div>
                                 </div>
                                 <div class="col-6">

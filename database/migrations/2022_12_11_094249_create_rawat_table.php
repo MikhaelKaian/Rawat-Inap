@@ -28,8 +28,7 @@ class CreateRawatTable extends Migration
             $table->integer('lama_inap');
             $table->date('tanggal_inap');
             $table->date('tanggal_inap_selesai');
-            $table->date('tanggal');
-            $table->timestamps();
+            $table->timestamp('fil_created');
         });
     }
 

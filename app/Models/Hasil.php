@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Hasil extends Model
 {
     public $timestamps = false;
+    const CREATED_AT = 'fil_created';
     use HasFactory;
     protected $table = 'hasil';
 
@@ -15,7 +16,7 @@ class Hasil extends Model
 
 
     protected $fillable = [
-        'id_dokter','id_pasien','kode_pasien', 'alamat', 'lama_inap', 'keterangan', 'tanggal'
+        'id_dokter','id_pasien','kode_pasien', 'alamat', 'lama_inap', 'keterangan', 'fil_created'
     ];
 
     public static function getDataPasien()
@@ -32,7 +33,7 @@ class Hasil extends Model
         $hasil_filter[$i]['alamat'] = $hasil[$i]->alamat;
         $hasil_filter[$i]['lama_inap'] = $hasil[$i]->lama_inap;
         $hasil_filter[$i]['keterangan'] = $hasil[$i]->keterangan;
-        $hasil_filter[$i]['tanggal'] = $hasil[$i]->tanggal;
+        $hasil_filter[$i]['fil_created'] = $hasil[$i]->fil_created;
         }
         return $pasiens_filter;
     }

@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kamar extends Model
 {
-    public $timestamps = false;
+    public $timestamps = false; 
+    const CREATED_AT = 'fil_created';
     use HasFactory;
     protected $table = 'kamar';
 
@@ -15,6 +16,6 @@ class Kamar extends Model
 
 
     protected $fillable = [
-        'no_kamar', 'nama_kamar', 'kelas_kamar', 'status_kamar', 'tanggal'
+        'no_kamar', 'nama_kamar', 'kelas_kamar', 'status_kamar', 'fil_created'
     ];
 }

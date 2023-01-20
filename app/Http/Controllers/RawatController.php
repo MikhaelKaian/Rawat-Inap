@@ -30,7 +30,7 @@ class RawatController extends Controller
             'lama_inap' => 'required',
             'tanggal_inap' => 'required',
             'tanggal_inap_selesai' => 'required',
-            'tanggal' => 'required',
+            'fil_created' => 'required',
         ]);
 
         // Rawat::Create([

@@ -64,9 +64,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="tanggal">Tanggal </label>
-                                                    <input type="date" class="form-control" name="tanggal" id="tanggal"
-                                                        required />
+                                                    
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -107,7 +105,7 @@
                         <td>{{ $dokters->id_spesialis }}</td>
                         <td>{{ $dokters->jam_praktek }}</td>
                         <td>{{ $dokters->jenis_kelamin_d }}</td>
-                        <td>{{ $dokters->tanggal }}</td>
+                        <td>{{ $dokters->fil_created }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" id="btn-edit-dokter"
@@ -118,7 +116,7 @@
                                     data-id_spesialis="{{ $dokters->id_spesialis }}"
                                     data-jam_praktek="{{ $dokters->jam_praktek }}"
                                     data-jenis_kelamin_d="{{ $dokters->jenis_kelamin_d }}"
-                                    data-tanggal="{{ $dokters->tanggal }}">
+                                    data-fil_created="{{ $dokters->fil_created }}">
                                     Edit
                                 </button>
                                 <a type="button" id="btn-hapus-dokter"
@@ -179,8 +177,7 @@
                                     <option value="laki-laki">Laki - Laki</option>
                                     <option value="perempuan">Perempuan</option>
                                 </select>
-                                <label for="edit-tanggal">Tanggal </label>
-                                <input type="date" class="form-control" name="tanggal" id="edit-tanggal" required />
+                                
                             </div>
                         </div>
                     </div>
@@ -229,7 +226,6 @@
         $("#edit-id_spesialis").val($(".editDokter-" + id).attr("data-id_spesialis"))
         $("#edit-jam_praktek").val($(".editDokter-" + id).attr("data-jam_praktek"))
         $("#edit-jenis_kelamin_d").val($(".editDokter-" + id).attr("data-jenis_kelamin_d"))
-        $("#edit-tanggal").val($(".editDokter-" + id).attr("data-tanggal"))
         $("#editForm").attr("action", "{{ url('dokter/') }}/" + id)
     }
     </script>

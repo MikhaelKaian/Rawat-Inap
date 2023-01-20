@@ -22,8 +22,7 @@ class CreateDokterTable extends Migration
             
             $table->string('jam_praktek',20);
             $table->enum('jenis_kelamin_d', ['laki-laki', 'perempuan']);
-            $table->date('tanggal');
-            $table->timestamps();
+            $table->timestamp('fil_created');
         });
     }
 

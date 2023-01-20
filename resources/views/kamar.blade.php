@@ -62,9 +62,7 @@
                                                         <option value="terisi">Sudah Terisi</option>
                                                         <option value="kosong">Kosong</option>
                                                     </select>
-                                                    <label for="tanggal">Tanggal </label>
-                                                    <input type="date" class="form-control" name="tanggal" id="tanggal"
-                                                        required />
+                                                    
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -104,7 +102,7 @@
                         <td>{{ $kamars->nama_kamar }}</td>
                         <td>{{ $kamars->kelas_kamar }}</td>
                         <td>{{ $kamars->status_kamar }}</td>
-                        <td>{{ $kamars->tanggal }}</td>
+                        <td>{{ $kamars->fil_created }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" id="btn-edit-kamar"
@@ -113,7 +111,7 @@
                                     data-target="#editKamarModal" data-id="{{ $kamars->id_kamar }}"
                                     data-no_kamar="{{ $kamars->no_kamar }}" data-nama_kamar="{{ $kamars->nama_kamar }}"
                                     data-kelas_kamar="{{ $kamars->kelas_kamar }}"
-                                    data-status_kamar="{{ $kamars->status_kamar }}" data-tanggal="{{ $kamars->tanggal }}">
+                                    data-status_kamar="{{ $kamars->status_kamar }}" data-tanggal="{{ $kamars->fil_created }}">
                                     Edit
                                 </button>
                                 <a type="button" id="btn-hapus-kamar"
@@ -176,9 +174,7 @@
                                         <option value="terisi">Sudah Terisi</option>
                                         <option value="kosong">Kosong</option>
                                     </select>
-                                    <label for="edit-tanggal">Tanggal </label>
-                                    <input type="date" class="form-control" name="tanggal" id="edit-tanggal"
-                                        required />
+                                    
                                 </div>
                             </div>
                         </div>
@@ -228,7 +224,6 @@
             $("#edit-nama_kamar").val($(".editKamar-" + id).attr("data-nama_kamar"))
             $("#edit-kelas_kamar").val($(".editKamar-" + id).attr("data-kelas_kamar"))
             $("#edit-status_kamar").val($(".editKamar-" + id).attr("data-status_kamar"))
-            $("#edit-tanggal").val($(".editKamar-" + id).attr("data-tanggal"))
             $("#editForm").attr("action", "{{ url('kamar/') }}/" + id)
         }
     </script>

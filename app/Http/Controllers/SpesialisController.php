@@ -18,13 +18,13 @@ class SpesialisController extends Controller
     public function store(Request $request){
         $validate = $request->all([
             'nama_spesialis' => 'required|max:255',
-            'tanggal' => 'required' ,
+            'fil_created' => 'required' ,
         ]);
 
 
         Spesialis::Create([
             'nama_spesialis' => $request->nama_spesialis,
-            'tanggal' => $request->tanggal
+            'fil_created' => $request->fil_created
         ]);
 
         return response()->json([
@@ -39,11 +39,9 @@ class SpesialisController extends Controller
 
             $validate = $req->validate([
                 'nama_spesialis' => 'required|max:255',
-                'tanggal' => 'required',
             ]);
 
             $spesialis->nama_spesialis = $req->get('nama_spesialis');
-            $spesialis->tanggal = $req->get('tanggal');
 
 
             $spesialis->save();
