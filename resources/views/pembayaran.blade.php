@@ -41,7 +41,6 @@
                         <div class="form-group">
                             <label for="tahun">Biaya Periksa</label>
                             <select name="province" class="form-control">
-                            <option value="">Pilih Jenis Ketentuan ...</option>
                             <option value="">Dirawat</option>
                             <option value="">Tidak Dirawat</option>
                             </select>
