@@ -15,7 +15,7 @@ class CreateLaporanTable extends Migration
     {
         Schema::create('laporan', function (Blueprint $table) {
             $table->id('id_laporan');
-            $table->timestamps();
+            $table->timestamps('fil_created');
         });
     }
 
