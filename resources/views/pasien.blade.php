@@ -241,7 +241,7 @@
                     $('#saveBtn').html('Save Changes');
                 }
             });
-            // location.reload();
+            location.reload();
         });
 
         function updateConfirmation(id) {

@@ -3,7 +3,12 @@
 @section('title', 'Home Page')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Data Dokter</h1>
+<h1 class="m-0 text-dark">Data Dokter</h1>
+<div class="container-fluid">
+    <div class="alert alert-primary text-center" role="alert">
+    Data Dokter
+    </div>
+</div>
 @stop
 
 @section('content')

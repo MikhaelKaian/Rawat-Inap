@@ -14,6 +14,6 @@ class Rawat extends Model
 
 
     protected $fillable = [
-        'id_dokter', 'id_kamar', 'lama_inap','tanggal_inap', 'tanggal_inap_selesai', 'fil_created'
+        'id_pasien','id_dokter', 'id_kamar', 'lama_inap','tanggal_inap', 'tanggal_inap_selesai'
     ];
 }

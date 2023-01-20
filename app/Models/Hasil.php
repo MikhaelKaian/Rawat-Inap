@@ -14,7 +14,7 @@ class Hasil extends Model
 
 
     protected $fillable = [
-        'id_dokter','id_pasien','kode_pasien', 'alamat', 'lama_inap', 'keterangan'
+        'id_dokter','id_pasien','kode_pasien', 'alamat', 'lama_inap', 'keterangan', 'tanggal'
     ];
 
     public static function getDataPasien()
@@ -31,7 +31,8 @@ class Hasil extends Model
         $hasil_filter[$i]['alamat'] = $hasil[$i]->alamat;
         $hasil_filter[$i]['lama_inap'] = $hasil[$i]->lama_inap;
         $hasil_filter[$i]['keterangan'] = $hasil[$i]->keterangan;
-        $hasil_filter[$i]['fil_created'] = $hasil[$i]->fil_created;
+        $hasil_filter[$i]['tanggal'] = $hasil[$i]->tanggal;
+        $hasil_filter[$i]['create_at'] = $hasil[$i]->create_at;
         }
         return $pasiens_filter;
     }
