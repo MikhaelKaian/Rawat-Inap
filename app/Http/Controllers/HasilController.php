@@ -39,6 +39,6 @@ class HasilController extends Controller
             'tanggal' => $request->tanggal
         ]);
 
-        return redirect()->back()->with('success', 'Hasil Periksa berhasil di simpan, ingat kode pasien : '.$request->kode_pasien);
+        return redirect()->back()->with('success', 'Hasil periksan berhasil di simpan, ingat kode pasie : '.$request->kode_pasien);
     }
 }
