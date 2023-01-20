@@ -11,10 +11,10 @@ class Rawat extends Model
     use HasFactory;
     protected $table = 'rawat';
 
-    protected $primaryKey = 'id_kamar';
+    protected $primaryKey = 'id_rawat';
 
 
     protected $fillable = [
-        'no_kamar', 'nama_kamar', 'kelas_kamar', 'status_kamar', 'tanggal'
+        'id_dokter', 'id_kamar', 'lama_inap','tanggal_inap', 'tanggal_inap_selesai', 'tanggal'
     ];
 }
