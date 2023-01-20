@@ -62,7 +62,7 @@
                                                         <option value="terisi">Sudah Terisi</option>
                                                         <option value="kosong">Kosong</option>
                                                     </select>
-                                                    
+
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -102,7 +102,7 @@
                         <td>{{ $kamars->nama_kamar }}</td>
                         <td>{{ $kamars->kelas_kamar }}</td>
                         <td>{{ $kamars->status_kamar }}</td>
-                        <td>{{ $kamars->fil_created }}</td>
+                        <td>{{ $kamars->created_at != "" ? date("Y-m-d",strtotime($kamars->created_at )) : "-"}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" id="btn-edit-kamar"
@@ -111,7 +111,7 @@
                                     data-target="#editKamarModal" data-id="{{ $kamars->id_kamar }}"
                                     data-no_kamar="{{ $kamars->no_kamar }}" data-nama_kamar="{{ $kamars->nama_kamar }}"
                                     data-kelas_kamar="{{ $kamars->kelas_kamar }}"
-                                    data-status_kamar="{{ $kamars->status_kamar }}" data-tanggal="{{ $kamars->fil_created }}">
+                                    data-status_kamar="{{ $kamars->status_kamar }}" data-created_at="{{ $kamars->created_at }}">
                                     Edit
                                 </button>
                                 <a type="button" id="btn-hapus-kamar"
@@ -174,7 +174,7 @@
                                         <option value="terisi">Sudah Terisi</option>
                                         <option value="kosong">Kosong</option>
                                     </select>
-                                    
+
                                 </div>
                             </div>
                         </div>

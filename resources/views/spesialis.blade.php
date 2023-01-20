@@ -72,7 +72,7 @@
                     <tr>
                         <td>{{ $no++ }}</td>
                         <td>{{ $spesialiss->nama_spesialis }}</td>
-                        <td>{{ $pasiens->created_at != "" ? date("Y-m-d",strtotime($pasiens->created_at )) : "-"}}</td>
+                        <td>{{ $spesialiss->created_at != "" ? date("Y-m-d",strtotime($spesialiss->created_at )) : "-"}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" id="btn-edit-spesialis"
