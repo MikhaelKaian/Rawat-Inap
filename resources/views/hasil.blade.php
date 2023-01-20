@@ -31,18 +31,14 @@
                     <div class="row col-md-12">
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="id_dokter">Daftar Dokter</label>
                                 <select class="form-control" name="id_dokter" id="id_dokter">
-                                    <option value="">== Pilih Daftar Dokter ==</option>
                                     @foreach ($dokter as $d)
                                         <option value="{{ $d->id_dokter }}">{{ $d->nama_dokter }} </option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="id_pasien">Daftar Pasien</label>
                                 <select class="form-control" name="id_pasien" id="id_pasien" onchange="fill_kode_pasien()">
-                                    <option value="">== Pilih Daftar Pasien ==</option>
                                     @foreach ($pasien as $p)
                                         <option value="{{ $p->id_pasien }}" data-kode_pasien="{{ $p->kode_pasien }}">{{ $p->nama_pasien }} </option>
                                     @endforeach
@@ -52,7 +48,6 @@
                             <div class="form-group">
                                 <label for="alamat">Alamat</label>
                                 <select class="form-control" name="alamat" id="alamat">
-                                    <option value="">== Pilih Alamat Pasien ==</option>
                                     @foreach ($pasien as $p)
                                         <option value="{{ $p->id_pasien }}">{{ $p->alamat_pasien }} </option>
                                     @endforeach
