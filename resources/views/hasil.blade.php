@@ -40,6 +40,7 @@
                             <div class="form-group">
                                 <select class="form-control" name="id_pasien" id="id_pasien" onchange="fill_kode_pasien()">
                                     @foreach ($pasien as $p)
+                                    <option value=""></option>
                                         <option value="{{ $p->id_pasien }}" data-kode_pasien="{{ $p->kode_pasien }}">{{ $p->nama_pasien }} </option>
                                     @endforeach
                                 </select>
@@ -49,6 +50,7 @@
                                 <label for="alamat">Alamat</label>
                                 <select class="form-control" name="alamat" id="alamat">
                                     @foreach ($pasien as $p)
+                                    <option value=""></option>
                                         <option value="{{ $p->id_pasien }}">{{ $p->alamat_pasien }} </option>
                                     @endforeach
                                 </select>
@@ -62,6 +64,7 @@
                                     <div class="form-group">
                                         <label for="keterangan">Keterangan</label>
                                         <select name="keterangan" class="form-control" id="keterangan">
+                                        <option value=""></option>
                                             <option value="rawat_inap">Rawat Inap</option>
                                             <option value="pulang">Pulang</option>
                                         </select>

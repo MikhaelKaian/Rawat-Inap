@@ -45,6 +45,7 @@
                                                     <label for="id_spesialis">ID Spesialis</label>
                                                         <select class="form-control" name="id_spesialis" id="id_spesialis">
                                                             @foreach ( $spesialis as $s )
+                                                            <option value=""></option>
                                                             <option value="{{$s->id_spesialis}}">{{ $s->nama_spesialis }}</option>
                                                         @endforeach
                                                         </select>

@@ -48,7 +48,7 @@
                                                 <div class="form-group">
                                                     <label for="kelas_kamar">Kelas Kamar</label>
                                                     <select class="form-control" name="kelas_kamar" id="kelas_kamar">
-                                                        <option value="">== Pilih Kelas ==</option>
+                                                        <option value=""></option>
                                                         <option value="kelas_I">Kelas I</option>
                                                         <option value="kelas_II">Kelas II</option>
                                                         <option value="kelas_III">Kelas III</option>
@@ -58,7 +58,7 @@
                                                 <div class="form-group">
                                                     <label for="status_kamar">Status</label>
                                                     <select class="form-control" name="status_kamar" id="status_kamar">
-                                                        <option value="">== Pilih Status ==</option>
+                                                        <option value=""></option>
                                                         <option value="terisi">Sudah Terisi</option>
                                                         <option value="kosong">Kosong</option>
                                                     </select>
@@ -160,6 +160,7 @@
                                 <div class="form-group">
                                     <label for="edit-kelas_kamar">Kelas Kamar</label>
                                     <select name="kelas_kamar" class="form-control" id="edit-kelas_kamar" required>
+                                        <option value=""></option>
                                         <option value="kelas_I">Kelas I</option>
                                         <option value="kelas_II">Kelas II</option>
                                         <option value="kelas_III">Kelas III</option>
@@ -169,6 +170,7 @@
                                 <div class="form-group">
                                     <label for="edit-status_kamar">Status</label>
                                     <select name="status_kamar" class="form-control" id="edit-status_kamar" required>
+                                        <option value=""></option>
                                         <option value="terisi">Sudah Terisi</option>
                                         <option value="kosong">Kosong</option>
                                     </select>
