@@ -45,7 +45,6 @@
                                 <div class="form-group">
                                     <label for="id_dokter">Daftar Dokter</label>
                                     <select class="form-control" name="id_dokter" id="id_dokter">
-                                        <option value="">== Pilih Daftar Dokter ==</option>
                                         @foreach ($dokter as $d)
                                             <option value="{{ $d->id_dokter }}">{{ $d->nama_dokter }} </option>
                                         @endforeach
@@ -56,7 +55,6 @@
                                 <div class="form-group">
                                     <label for="id_kamar">Daftar Kamar</label>
                                     <select class="form-control" name="id_kamar" id="id_kamar">
-                                        <option value="">== Pilih Daftar Kamar ==</option>
                                         @foreach ($kamar as $k)
                                             <option value="{{ $k->id_kamar }}">{{ $k->nama_kamar }} </option>
                                         @endforeach
@@ -65,7 +63,6 @@
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
-                                    <label for="lama_inap">Lama Inap</label>
                                     <input type="text" class="form-control" name="lama_inap" id="lama_inap"
                                         placeholder="...... hari" required />
                                 </div>
