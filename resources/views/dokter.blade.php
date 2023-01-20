@@ -64,7 +64,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    
+
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -105,7 +105,7 @@
                         <td>{{ $dokters->id_spesialis }}</td>
                         <td>{{ $dokters->jam_praktek }}</td>
                         <td>{{ $dokters->jenis_kelamin_d }}</td>
-                        <td>{{ $dokters->fil_created }}</td>
+                        <td>{{ $dokters->created_at != "" ? date("Y-m-d",strtotime($dokters->created_at )) : "-"}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" id="btn-edit-dokter"
@@ -116,7 +116,7 @@
                                     data-id_spesialis="{{ $dokters->id_spesialis }}"
                                     data-jam_praktek="{{ $dokters->jam_praktek }}"
                                     data-jenis_kelamin_d="{{ $dokters->jenis_kelamin_d }}"
-                                    data-fil_created="{{ $dokters->fil_created }}">
+                                    data-created_at="{{ $dokters->created_at }}">
                                     Edit
                                 </button>
                                 <a type="button" id="btn-hapus-dokter"
@@ -177,7 +177,7 @@
                                     <option value="laki-laki">Laki - Laki</option>
                                     <option value="perempuan">Perempuan</option>
                                 </select>
-                                
+
                             </div>
                         </div>
                     </div>

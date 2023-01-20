@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rawat extends Model
 {
-    public $timestamps = false;
-    const CREATED_AT = 'fil_created';
     use HasFactory;
     protected $table = 'rawat';
 

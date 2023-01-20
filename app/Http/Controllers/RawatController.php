@@ -32,7 +32,6 @@ class RawatController extends Controller
             'lama_inap' => 'required',
             'tanggal_inap' => 'required',
             'tanggal_inap_selesai' => 'required',
-            'tanggal' => 'required',
         ]);
 
     //     // Rawat::Create([
@@ -41,7 +40,6 @@ class RawatController extends Controller
     //     //     'lama_inap' => $request->lama_inap,
     //     //     'tanggal_inap' => $request->tanggal_inap,
     //     //     'tanggal_inap_selesai' => $request->tanggal_inap_selesai,
-    //     //     'tanggal' => $request->tanggal
     //     // ]);
 
         return redirect()->back()->with('success', 'Hasil Rawat berhasil di simpan');

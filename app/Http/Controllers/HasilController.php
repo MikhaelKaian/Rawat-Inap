@@ -26,7 +26,6 @@ class HasilController extends Controller
             'alamat' => 'required',
             'lama_inap' => 'required',
             'keterangan' => 'required',
-            'fil_created' => 'required',
         ]);
 
         Hasil::Create([
@@ -36,7 +35,6 @@ class HasilController extends Controller
             'alamat' => $request->alamat,
             'lama_inap' => $request->lama_inap,
             'keterangan' => $request->keterangan,
-            'fil_created' => $request->fil_created
         ]);
 
         return redirect()->back()->with('success', 'Hasil periksan berhasil di simpan, ingat kode pasie : '.$request->kode_pasien);
