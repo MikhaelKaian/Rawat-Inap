@@ -69,7 +69,7 @@
                                                     <label for="jenis_kelamin_p">Jenis Kelamin</label>
                                                     <select name="jenis_kelamin_p" class="form-control"
                                                         id="jenis_kelamin_p">
-                                                        <option>Pilih Jenis Kelamin....</option>
+                                                        <option></option>
                                                         <option value="laki-laki">Laki - Laki</option>
                                                         <option value="perempuan">Perempuan</option>
                                                     </select>
@@ -198,7 +198,7 @@
                                 <div class="form-group">
                                     <label for="edit-jenis_kelamin_p">Jenis Kelamin</label>
                                     <select name="jenis_kelamin_p" id="edit-jenis_kelamin_p" class="form-control">
-                                        <option value="">Pilih Jenis Kelamin....</option>
+                                        <option value=""></option>
                                         <option value="laki-laki">Laki - Laki</option>
                                         <option value="perempuan">Perempuan</option>
                                     </select>

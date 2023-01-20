@@ -16,9 +16,6 @@ class CreatePembayaranTable extends Migration
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->bigIncrements('id_pembayaran');
             
-            $table->bigInteger('id_detail_pasien')->unsigned();
-            $table->foreign('id_detail_pasien')->references('id_detail_pasien')->on('detail_pasien')->onDelete('cascade');
-
             $table->enum('jenis_tindakan', ['rawat inap', 'periksa']);
             $table->integer('jumlah_p_tindakan');
             $table->integer('jumlah_p_inap');
