@@ -31,6 +31,7 @@
                     <div class="row col-md-12">
                         <div class="col-12">
                             <div class="form-group">
+                                <label for="id_dokter">ID Dokter</label>
                                 <select class="form-control" name="id_dokter" id="id_dokter">
                                     @foreach ($dokter as $d)
                                         <option value="{{ $d->id_dokter }}">{{ $d->nama_dokter }} </option>
@@ -38,6 +39,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="id_pasien">ID Pasien</label>
                                 <select class="form-control" name="id_pasien" id="id_pasien" onchange="fill_kode_pasien()">
                                     @foreach ($pasien as $p)
                                     <option value=""></option>

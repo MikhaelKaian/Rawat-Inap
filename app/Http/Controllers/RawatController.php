@@ -22,6 +22,8 @@ class RawatController extends Controller
         return view('rawat', compact('user', 'kamar', 'dokter', 'hasil', 'pasien'));
     }
 
+
+
     public function store(Request $request){
         $validate = $request->all([
 
@@ -30,17 +32,17 @@ class RawatController extends Controller
             'lama_inap' => 'required',
             'tanggal_inap' => 'required',
             'tanggal_inap_selesai' => 'required',
-            'fil_created' => 'required',
+            'tanggal' => 'required',
         ]);
 
-        // Rawat::Create([
-        //     'id_dokter' => $request->id_dokter,
-        //     'id_kamar' => $request->id_kamar,
-        //     'lama_inap' => $request->lama_inap,
-        //     'tanggal_inap' => $request->tanggal_inap,
-        //     'tanggal_inap_selesai' => $request->tanggal_inap_selesai,
-        //     'tanggal' => $request->tanggal
-        // ]);
+    //     // Rawat::Create([
+    //     //     'id_dokter' => $request->id_dokter,
+    //     //     'id_kamar' => $request->id_kamar,
+    //     //     'lama_inap' => $request->lama_inap,
+    //     //     'tanggal_inap' => $request->tanggal_inap,
+    //     //     'tanggal_inap_selesai' => $request->tanggal_inap_selesai,
+    //     //     'tanggal' => $request->tanggal
+    //     // ]);
 
         return redirect()->back()->with('success', 'Hasil Rawat berhasil di simpan');
     }

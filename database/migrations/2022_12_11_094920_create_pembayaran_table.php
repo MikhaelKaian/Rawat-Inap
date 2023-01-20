@@ -15,12 +15,12 @@ class CreatePembayaranTable extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->bigIncrements('id_pembayaran');
-            
+
             $table->enum('jenis_tindakan', ['rawat inap', 'periksa']);
             $table->integer('jumlah_p_tindakan');
             $table->integer('jumlah_p_inap');
             $table->integer('total');
-            $table->timestamp('fil_created');
+            $table->timestamps();
         });
     }
 

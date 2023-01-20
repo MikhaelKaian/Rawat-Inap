@@ -63,8 +63,11 @@
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
+                                    <label for="id_kamar">Lama Inap</label>
                                     <input type="text" class="form-control" name="lama_inap" id="lama_inap"
-                                        placeholder="...... hari" required />
+                                        placeholder="......  @foreach ($kamar as $k)
+                                        <option value="{{ $k->id_kamar }}">{{ $k->nama_kamar }} </option>
+                                    @endforeach hari" required />
                                 </div>
                             </div>
                         </div>
