@@ -22,8 +22,8 @@ class CreatePasienTable extends Migration
             $table->text('alamat_pasien');
             $table->string('no_tlp',15);
             $table->enum('jenis_kelamin_p', ['laki-laki', 'perempuan']);
-            $table->date('tanggal');
-            $table->timestamps();
+            
+            $table->timestamp('fil_created'); 
         });
     }
 

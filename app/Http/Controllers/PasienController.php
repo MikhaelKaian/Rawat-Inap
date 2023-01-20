@@ -23,7 +23,7 @@ class PasienController extends Controller
             'alamat_pasien' => 'required',
             'no_tlp' => 'required',
             'jenis_kelamin_p' => 'required',
-            'tanggal' => 'required',
+            'fil_created' => 'required',
         ]);
 
         Pasien::Create([
@@ -34,7 +34,7 @@ class PasienController extends Controller
             'alamat_pasien' => $request->alamat_pasien,
             'no_tlp' => $request->no_tlp,
             'jenis_kelamin_p' => $request->jenis_kelamin_p,
-            'tanggal' => $request->tanggal,
+            'fil_created' => $request->fil_created,
         ]);
 
         return response()->json([
@@ -54,7 +54,6 @@ class PasienController extends Controller
             'alamat_pasien' => 'required',
             'no_tlp' => 'required',
             'jenis_kelamin_p' => 'required',
-            'tanggal' => 'required',
         ]);
 
         $pasien->nama_pasien = $req->get('nama_pasien');
@@ -63,7 +62,6 @@ class PasienController extends Controller
         $pasien->alamat_pasien = $req->get('alamat_pasien');
         $pasien->no_tlp = $req->get('no_tlp');
         $pasien->jenis_kelamin_p = $req->get('jenis_kelamin_p');
-        $pasien->tanggal = $req->get('tanggal');
 
         $pasien->save();
 
