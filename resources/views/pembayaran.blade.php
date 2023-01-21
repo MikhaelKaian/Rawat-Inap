@@ -56,7 +56,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="biaya_inap">Biaya Inap (bila dirawat)</label>
-                                <input type="text" name="biaya_inap" id="biaya_inap" class="form-control">
+                                <input type="text" name="biaya_inap" id="biaya_inap" class="form-control" disabled>
                             </div>
                         </div>
                         <div class="col-4">

@@ -47,8 +47,9 @@
                                                         required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="id_spesialis">ID Spesialis</label>
+                                                    <label for="id_spesialis">Nama Spesialis</label>
                                                         <select class="form-control" name="id_spesialis" id="id_spesialis">
+                                                            <option value=""></option>
                                                             @foreach ( $spesialis as $s )
                                                             <option value="{{$s->id_spesialis}}">{{ $s->nama_spesialis }}</option>
                                                         @endforeach
@@ -62,6 +63,7 @@
                                                 <div class="form-group">
                                                     <label for="jenis_kelamin_d">Jenis Kelamin</label>
                                                     <select class="form-control" name="jenis_kelamin_d" id="jenis_kelamin_d">
+                                                        <option value=""></option>
                                                         <option value="laki-laki">Laki-Laki</option>
                                                         <option value="perempuan">Perempuan</option>
                                                     </select>
@@ -161,7 +163,7 @@
                                     required />
                             </div>
                             <div class="form-group">
-                                <label for="edit-id_spesialis">ID Spesialis</label>
+                                <label for="edit-id_spesialis">Nama Spesialis</label>
                                     <select class="form-control" name="id_spesialis" id="edit-id_spesialis">
                                         @foreach ( $spesialis as $s )
                                         <option value="{{$s->id_spesialis}}">{{ $s->nama_spesialis }}</option>
