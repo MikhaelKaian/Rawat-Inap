@@ -109,11 +109,10 @@
 
 @push('js')
     <script>
-
-        $("#tindak_lanjut").change(function (event) {
-            if($(this).val() == "rawat_jalan"){
+        $("#tindak_lanjut").change(function(event) {
+            if ($(this).val() == "rawat_jalan") {
                 $("#container_lama_inap").hide()
-            }else{
+            } else {
                 $("#container_lama_inap").show()
             }
         })
