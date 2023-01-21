@@ -25,10 +25,13 @@ class CreateRawatTable extends Migration
             $table->bigInteger('id_kamar')->unsigned();
             $table->foreign('id_kamar')->references('id_kamar')->on('kamar')->onDelete('cascade');
 
-            $table->integer('lama_inap');
+            // $table->bigInteger('id_hasil')->unsigned();
+            // $table->foreign('id_hasil')->references('id_hasil')->on('hasil')->onDelete('cascade');
+
+            // $table->integer('lama_inap');
             $table->date('tanggal_inap');
             $table->date('tanggal_inap_selesai');
-            $table->timestamp('fil_created');
+            $table->timestamps();
         });
     }
 

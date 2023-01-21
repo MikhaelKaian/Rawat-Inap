@@ -4,6 +4,10 @@ namespace App\Exports;
 
 use App\Models\Pembayaran;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromArray;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use App\Models\Laporan;
 
 class PembayaranExport implements FromCollection
 {
@@ -25,8 +29,8 @@ class PembayaranExport implements FromCollection
         return [
             'id_pembayaran',
             'jenis_tindakan',
-            'jumlah_p_tindakan',
-            'jumlah_p_inap',
+            'biaya_periksa',
+            'biaya_rawat',
             'total',
             'tanggal'
         ];

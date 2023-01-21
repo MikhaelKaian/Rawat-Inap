@@ -7,16 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Laporan extends Model
 {
-    public $timestamps = false;
-    const CREATED_AT = 'fil_created';
     use HasFactory;
     protected $table = 'pembayaran';
 
     protected $primaryKey = 'id_pembayaran';
-
+    
 
     protected $fillable = [
-        'id_pembayaran', 'jenis_tindakan', 'jumlah_p_tindakan', 'jumlah_p_inap', 'total', 'fil_created'
+        'no_kamar', 'nama_kamar', 'kelas_kamar', 'status_kamar', 'fil_created'
     ];
 
     public static function getDataPembayaran()

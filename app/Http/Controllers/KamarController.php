@@ -21,7 +21,6 @@ class KamarController extends Controller
             'nama_kamar' => 'required|max:255',
             'kelas_kamar' => 'required',
             'status_kamar' => 'required',
-            'fil_created' => 'required',
         ]);
 
         Kamar::Create([
@@ -29,7 +28,6 @@ class KamarController extends Controller
             'nama_kamar' => $request->nama_kamar,
             'kelas_kamar' => $request->kelas_kamar,
             'status_kamar' => $request->status_kamar,
-            'fil_created' => $request->fil_created
         ]);
 
         return response()->json([

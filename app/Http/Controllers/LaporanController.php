@@ -48,7 +48,7 @@ class LaporanController extends Controller
     {
         $pembayaran = Pembayaran::all();
 
-        $pdf = PDF::loadview('print_pembayaran', ['hasil'=>$pembayaran])->setPaper('a4', 'landscape');;
+        $pdf = PDF::loadview('print_pembayaran', ['pembayaran'=>$pembayaran])->setPaper('a4', 'landscape');;
         return $pdf->stream('data_pembayaran.pdf');
     }
     

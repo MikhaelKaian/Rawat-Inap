@@ -22,9 +22,11 @@ class CreateHasilTable extends Migration
             $table->foreign('id_pasien')->references('id_pasien')->on('pasien')->onDelete('cascade');
             $table->string('kode_pasien');
             $table->text('alamat');
-            $table->integer('lama_inap');
-            $table->enum('keterangan', ['rawat_inap', 'pulang']);
-            $table->timestamp('fil_created');
+            $table->integer('lama_inap')->default(0);
+            $table->text('keterangan');
+            $table->enum('tindak_lanjut', ['rawat_inap', 'rawat_jalan']);
+            $table->date('tanggal');
+            $table->timestamps();
         });
     }
 

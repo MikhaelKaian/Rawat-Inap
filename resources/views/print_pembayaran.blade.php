@@ -24,12 +24,12 @@
                         @php
                             $no = 1;
                         @endphp
-                        @foreach ($hasil as $hasils)
+                        @foreach ($pembayaran as $pembayarans)
                             <tr>
                                 <td>{{ $pembayaran->id_pembayaran }}</td>
                                 <td>{{ $pembayaran->jenis_tindakan}}</td>
-                                <td>{{ $pembayaran->jumlah_p_tindakan}}</td>
-                                <td>{{ $pembayaran->jumlah_p_inap }}</td>
+                                <td>{{ $pembayaran->biaya_periksa}}</td>
+                                <td>{{ $pembayaran->biaya_rawat}}</td>
                                 <td>{{ $pembayaran->total }}</td>
                                 
                             </tr>

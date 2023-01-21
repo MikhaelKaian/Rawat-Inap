@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pasien extends Model
 {
-    public $timestamps = false; 
-    const CREATED_AT = 'fil_created';
     use HasFactory;
 
     protected $table = 'pasien';
@@ -16,7 +14,7 @@ class Pasien extends Model
 
 
     protected $fillable = [
-        'kode_pasien','nama_pasien', 'umur_pasien','tgl_pasien','alamat_pasien','no_tlp','jenis_kelamin_p','fil_created',
+        'kode_pasien','nama_pasien', 'umur_pasien','tgl_pasien','alamat_pasien','no_tlp','jenis_kelamin_p', 'created_at'
     ];
 
     public static function getDataPasien()
@@ -25,7 +23,7 @@ class Pasien extends Model
 
     $pasiens_filter = [];
     $no = 1;
-    for ($i=0; $i < $pasiens->count(); $i++){ 
+    for ($i=0; $i < $pasiens->count(); $i++){
         $pasiens_filter[$i]['no'] = $no++;
         $pasiens_filter[$i]['nama_pasien'] = $pasiens[$i]->nama_pasien;
         $pasiens_filter[$i]['umur_pasien'] = $pasiens[$i]->umur_pasien;
@@ -33,7 +31,7 @@ class Pasien extends Model
         $pasiens_filter[$i]['alamat_pasien'] = $pasiens[$i]->alamat_pasien;
         $pasiens_filter[$i]['no_tlp'] = $pasiens[$i]->no_tlp;
         $pasiens_filter[$i]['jenis_kelamin_p'] = $pasiens[$i]->jenis_kelamin_p;
-        $pasiens_filter[$i]['fil_created'] = $pasiens[$i]->fil_ts;
+        $pasiens_filter[$i]['created_at'] = $pasiens[$i]->created_at;
         }
         return $pasiens_filter;
     }

@@ -38,7 +38,7 @@
                                 <td>{{ $pasiens->alamat_pasien }}</td>
                                 <td>{{ $pasiens->no_tlp }}</td>
                                 <td>{{ $pasiens->jenis_kelamin_p }}</td>
-                                <td>{{ $pasiens->tanggal }}</td>
+                                <td>{{ $pasiens->created_at != "" ? date("Y-m-d",strtotime($pasiens->created_at )) : "-"}}</td>
                             </tr>
                          @endforeach
                     </tbody>

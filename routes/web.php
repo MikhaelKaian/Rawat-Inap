@@ -75,3 +75,6 @@ Route::get('admin/export/pembayaran', [LaporanController::class, 'pembayaranexpo
 //Email
 Route::get('contact', [ContactController::class, 'create']);
 Route::post('/contact',[ContactController::class, 'send'])->name('contact.send');
+
+// route API
+Route::get('get_pasien/{id}', [PasienController::class, 'detail']);

@@ -69,16 +69,11 @@
                                                     <label for="jenis_kelamin_p">Jenis Kelamin</label>
                                                     <select name="jenis_kelamin_p" class="form-control"
                                                         id="jenis_kelamin_p">
-                                                        <option></option>
+                                                        <option value=""></option>
                                                         <option value="laki-laki">Laki - Laki</option>
                                                         <option value="perempuan">Perempuan</option>
                                                     </select>
                                                 </div>
-                                                <!-- <div class="form-group">
-                                                    <label for="fil_ts">Tanggal</label>
-                                                    <input type="date"class="form-control" name="tanggal" id="fil_ts"
-                                                        required />
-                                                </div> -->
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-dismiss="modal">Tutup</button>
@@ -124,7 +119,7 @@
                         <td>{{ $pasiens->alamat_pasien }}</td>
                         <td>{{ $pasiens->no_tlp }}</td>
                         <td>{{ $pasiens->jenis_kelamin_p }}</td>
-                        <td>{{ $pasiens->fil_created }}</td>
+                        <td>{{ $pasiens->created_at != "" ? date("Y-m-d",strtotime($pasiens->created_at )) : "-"}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" id="btn-edit-pasien"
@@ -135,7 +130,7 @@
                                     data-tgl_pasien="{{ $pasiens->tgl_pasien }}"
                                     data-alamat_pasien="{{ $pasiens->alamat_pasien }}" data-no_tlp="{{ $pasiens->no_tlp }}"
                                     data-jenis_kelamin_p="{{ $pasiens->jenis_kelamin_p }}"
-                                    data-tanggal="{{ $pasiens->fil_created }}">
+                                    data-created_at="{{ $pasiens->created_at }}">
                                     Edit
                                 </button>
                                 <a type="button" id="btn-hapus-pasien"
@@ -198,11 +193,11 @@
                                 <div class="form-group">
                                     <label for="edit-jenis_kelamin_p">Jenis Kelamin</label>
                                     <select name="jenis_kelamin_p" id="edit-jenis_kelamin_p" class="form-control">
-                                        <option value=""></option>
+                                        <option value="jenis_kelamin_p"></option>
                                         <option value="laki-laki">Laki - Laki</option>
                                         <option value="perempuan">Perempuan</option>
                                     </select>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -256,7 +251,6 @@
             $("#edit-alamat_pasien").val($(".editPasien-" + id).attr("data-alamat_pasien"))
             $("#edit-no_tlp").val($(".editPasien-" + id).attr("data-no_tlp"))
             $("#edit-jenis_kelamin_p").val($(".editPasien-" + id).attr("data-jenis_kelamin_p"))
-            $("#edit-fil_updated").val($(".editPasien-" + id).attr("data-fil_updated"))
             $("#editForm").attr("action", "{{ url('pasien/') }}/" + id)
         }
     </script>

@@ -36,7 +36,7 @@
                                 <td>{{ $hasils->alamat }}</td>
                                 <td>{{ $hasils->lama_inap }}</td>
                                 <td>{{ $hasils->keterangan }}</td>
-                                <td>{{ $hasils->tanggal }}</td>
+                                <td>{{ $hasils->created_at != "" ? date("Y-m-d",strtotime($hasils->created_at )) : "-"}}</td>
                             </tr>
                          @endforeach
                     </tbody>

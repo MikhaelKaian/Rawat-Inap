@@ -72,14 +72,14 @@
                     <tr>
                         <td>{{ $no++ }}</td>
                         <td>{{ $spesialiss->nama_spesialis }}</td>
-                        <td>{{ $spesialiss->fil_created }}</td>
+                        <td>{{ $spesialiss->created_at != "" ? date("Y-m-d",strtotime($spesialiss->created_at )) : "-"}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" id="btn-edit-spesialis"
                                     class="btn btn-success editSpesialis-{{ $spesialiss->id_spesialis }}"
                                     onclick="updateConfirmation('{{ $spesialiss->id_spesialis }}')" data-toggle="modal"
                                     data-target="#editSpesialisModal" data-nama_spesialis="{{ $spesialiss->nama_spesialis }}"
-                                    data-tanggal="{{ $spesialiss->fil_created }}">
+                                    data-created_at="{{ $spesialiss->created_at }}">
                                     Edit
                                 </button>
                                 <a type="button" id="btn-hapus-spesialis"

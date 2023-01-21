@@ -3,7 +3,12 @@
 @section('title', 'Home Page')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Data Dokter</h1>
+<h1 class="m-0 text-dark">Data Dokter</h1>
+<div class="container-fluid">
+    <div class="alert alert-primary text-center" role="alert">
+    Data Dokter
+    </div>
+</div>
 @stop
 
 @section('content')
@@ -42,10 +47,10 @@
                                                         required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="id_spesialis">ID Spesialis</label>
+                                                    <label for="id_spesialis">Nama Spesialis</label>
                                                         <select class="form-control" name="id_spesialis" id="id_spesialis">
-                                                            @foreach ( $spesialis as $s )
                                                             <option value=""></option>
+                                                            @foreach ( $spesialis as $s )
                                                             <option value="{{$s->id_spesialis}}">{{ $s->nama_spesialis }}</option>
                                                         @endforeach
                                                         </select>
@@ -64,7 +69,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    
+
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -105,7 +110,7 @@
                         <td>{{ $dokters->id_spesialis }}</td>
                         <td>{{ $dokters->jam_praktek }}</td>
                         <td>{{ $dokters->jenis_kelamin_d }}</td>
-                        <td>{{ $dokters->fil_created }}</td>
+                        <td>{{ $dokters->created_at != "" ? date("Y-m-d",strtotime($dokters->created_at )) : "-"}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" id="btn-edit-dokter"
@@ -116,7 +121,7 @@
                                     data-id_spesialis="{{ $dokters->id_spesialis }}"
                                     data-jam_praktek="{{ $dokters->jam_praktek }}"
                                     data-jenis_kelamin_d="{{ $dokters->jenis_kelamin_d }}"
-                                    data-fil_created="{{ $dokters->fil_created }}">
+                                    data-created_at="{{ $dokters->created_at }}">
                                     Edit
                                 </button>
                                 <a type="button" id="btn-hapus-dokter"
@@ -158,7 +163,7 @@
                                     required />
                             </div>
                             <div class="form-group">
-                                <label for="edit-id_spesialis">ID Spesialis</label>
+                                <label for="edit-id_spesialis">Nama Spesialis</label>
                                     <select class="form-control" name="id_spesialis" id="edit-id_spesialis">
                                         @foreach ( $spesialis as $s )
                                         <option value="{{$s->id_spesialis}}">{{ $s->nama_spesialis }}</option>
@@ -173,11 +178,10 @@
                             <div class="form-group">
                                 <label for="edit-jenis_kelamin_d">Jenis Kelamin</label>
                                 <select name="jenis_kelamin_d" class="form-control" id="edit-jenis_kelamin_d">
-                                    <option value=""></option>
                                     <option value="laki-laki">Laki - Laki</option>
                                     <option value="perempuan">Perempuan</option>
                                 </select>
-                                
+
                             </div>
                         </div>
                     </div>

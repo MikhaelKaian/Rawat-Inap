@@ -16,6 +16,7 @@ class PasienController extends Controller
     }
 
     public function store(Request $request){
+
         $validate = $request->all([
             'nama_pasien' => 'required|max:255',
             'umur_pasien' => 'required',
@@ -23,8 +24,8 @@ class PasienController extends Controller
             'alamat_pasien' => 'required',
             'no_tlp' => 'required',
             'jenis_kelamin_p' => 'required',
-            'fil_created' => 'required',
         ]);
+
 
         Pasien::Create([
             'kode_pasien' => $request->kode_pasien,
@@ -34,7 +35,6 @@ class PasienController extends Controller
             'alamat_pasien' => $request->alamat_pasien,
             'no_tlp' => $request->no_tlp,
             'jenis_kelamin_p' => $request->jenis_kelamin_p,
-            'fil_created' => $request->fil_created,
         ]);
 
         return response()->json([
@@ -82,5 +82,14 @@ class PasienController extends Controller
         );
 
         return redirect('pasien')->with($notification);
+        }
+
+        public function detail($id)
+        {
+            $pasien = Pasien::join("hasil","pasien.id_pasien","=","hasil.id_pasien")->join("dokter","dokter.id_dokter","=","hasil.id_dokter")
+            ->where("pasien.kode_pasien","=",$id)->first();
+            if ($pasien) {
+                return response()->json($pasien, 200);
+            }
         }
 }
