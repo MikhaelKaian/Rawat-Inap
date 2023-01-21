@@ -31,26 +31,28 @@
                     <div class="row col-md-12">
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="id_dokter">ID Dokter</label>
+                                <label for="id_dokter">Nama Dokter</label>
                                 <select class="form-control" name="id_dokter" id="id_dokter">
+                                    <option value=""></option>
                                     @foreach ($dokter as $d)
                                         <option value="{{ $d->id_dokter }}">{{ $d->nama_dokter }} </option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="id_pasien">ID Pasien</label>
+                                <label for="id_pasien">Nama Pasien</label>
                                 <select class="form-control" name="id_pasien" id="id_pasien" onchange="fill_kode_pasien()">
+                                    <option value=""></option>
                                     @foreach ($pasien as $p)
                                         <option value="{{ $p->id_pasien }}" data-kode_pasien="{{ $p->kode_pasien }}">
                                             {{ $p->nama_pasien }} </option>
                                     @endforeach
                                 </select>
                             </div>
-                            <input type="hidden" name="kode_pasien" id="kode_pasien">
                             <div class="form-group">
                                 <label for="alamat">Alamat</label>
                                 <select class="form-control" name="alamat" id="alamat">
+                                    <option value=""></option>
                                     @foreach ($pasien as $p)
                                         <option value="{{ $p->id_pasien }}">{{ $p->alamat_pasien }} </option>
                                     @endforeach
@@ -71,13 +73,15 @@
                                     <div class="form-group">
                                         <label for="tindak_lanjut">Tindak Lanjut</label>
                                         <select name="tindak_lanjut" class="form-control" id="tindak_lanjut">
+                                            <option value=""></option>
                                             <option value="rawat_inap">Rawat Inap</option>
                                             <option value="rawat_jalan">Rawat Jalan</option>
                                         </select>
                                     </div>
                                 </div>
+                                <input type="hidden" name="kode_pasien" id="kode_pasien">
                                 <div class="col-6">
-                                    <div class="form-group">
+                                    <div class="form-group " id="container_lama_inap">
                                         <label for="lama_inap">Lama Inap</label>
                                         <input type="text" class="form-control" name="lama_inap" id="lama_inap"
                                             placeholder="...... hari" />
@@ -108,9 +112,9 @@
 
         $("#tindak_lanjut").change(function (event) {
             if($(this).val() == "rawat_jalan"){
-                $("#lama_inap").hide()
+                $("#container_lama_inap").hide()
             }else{
-                $("#lama_inap").show()
+                $("#container_lama_inap").show()
             }
         })
 

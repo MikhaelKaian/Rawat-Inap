@@ -50,7 +50,6 @@
                                                     <label for="id_spesialis">ID Spesialis</label>
                                                         <select class="form-control" name="id_spesialis" id="id_spesialis">
                                                             @foreach ( $spesialis as $s )
-                                                            <option value=""></option>
                                                             <option value="{{$s->id_spesialis}}">{{ $s->nama_spesialis }}</option>
                                                         @endforeach
                                                         </select>
@@ -63,7 +62,6 @@
                                                 <div class="form-group">
                                                     <label for="jenis_kelamin_d">Jenis Kelamin</label>
                                                     <select class="form-control" name="jenis_kelamin_d" id="jenis_kelamin_d">
-                                                        <option value=""></option>
                                                         <option value="laki-laki">Laki-Laki</option>
                                                         <option value="perempuan">Perempuan</option>
                                                     </select>
@@ -178,7 +176,6 @@
                             <div class="form-group">
                                 <label for="edit-jenis_kelamin_d">Jenis Kelamin</label>
                                 <select name="jenis_kelamin_d" class="form-control" id="edit-jenis_kelamin_d">
-                                    <option value=""></option>
                                     <option value="laki-laki">Laki - Laki</option>
                                     <option value="perempuan">Perempuan</option>
                                 </select>

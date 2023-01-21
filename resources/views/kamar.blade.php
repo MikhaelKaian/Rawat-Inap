@@ -160,7 +160,6 @@
                                 <div class="form-group">
                                     <label for="edit-kelas_kamar">Kelas Kamar</label>
                                     <select name="kelas_kamar" class="form-control" id="edit-kelas_kamar" required>
-                                        <option value=""></option>
                                         <option value="kelas_I">Kelas I</option>
                                         <option value="kelas_II">Kelas II</option>
                                         <option value="kelas_III">Kelas III</option>
@@ -170,7 +169,6 @@
                                 <div class="form-group">
                                     <label for="edit-status_kamar">Status</label>
                                     <select name="status_kamar" class="form-control" id="edit-status_kamar" required>
-                                        <option value=""></option>
                                         <option value="terisi">Sudah Terisi</option>
                                         <option value="kosong">Kosong</option>
                                     </select>

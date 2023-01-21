@@ -22,23 +22,26 @@ class HasilController extends Controller
     public function store(Request $request){
         $validate = $request->all([
             'id_dokter' => 'required',
+            'kode_pasien' => 'required',
             'id_pasien' => 'required',
             'alamat' => 'required',
             'lama_inap' => 'required',
+            'tindak_lanjut' => 'required',
             'keterangan' => 'required',
             'tanggal' => 'required',
         ]);
 
         Hasil::Create([
-            'kode_pasien' => $request->kode_pasien,
             'id_dokter' => $request->id_dokter,
+            'kode_pasien' => $request->kode_pasien,
             'id_pasien' => $request->id_pasien,
             'alamat' => $request->alamat,
-            'lama_inap' => $request->lama_inap,
+            'lama_inap' => $request->lama_inap==""?0:$request->lama_inap,
+            'tindak_lanjut' => $request->tindak_lanjut,
             'keterangan' => $request->keterangan,
             'tanggal' => $request->tanggal,
         ]);
 
-        return redirect()->back()->with('success', 'Hasil periksan berhasil di simpan, ingat kode pasie : '.$request->kode_pasien);
+        return redirect()->back()->with('success', 'Hasil periksa berhasil di simpan, ingat kode pasien : '.$request->kode_pasien);
     }
 }
