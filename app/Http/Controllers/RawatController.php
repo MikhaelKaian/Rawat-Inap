@@ -23,8 +23,6 @@ class RawatController extends Controller
         return view('rawat', compact('user', 'kamar', 'dokter', 'hasil', 'pasien'));
     }
 
-
-
     public function store(Request $request){
         $validate = $request->all([
 

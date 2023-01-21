@@ -14,4 +14,22 @@ class PembayaranController extends Controller
         $pembayaran = Pembayaran::all();
         return view('pembayaran', compact('user', 'pembayaran'));
     }
+
+    public function store(Request $request){
+        $validate = $request->all([
+            'jenis_tindakan' => 'required',
+            'biaya_periksa' => 'required',
+            'biaya_rawat' => 'required',
+            'total' => 'required',
+        ]);
+
+        Pembayaran::Create([
+            'jenis_tindakan' => $request->jenis_tindakan,
+            'biaya_periksa' => $request->biaya_periksa,
+            'biaya_rawat' => $request->biaya_rawat,
+            'total' => $request->total,
+        ]);
+
+        return response()->json(["message"=> "Data berhasil Di simpan"], 200);
+    }
 }
