@@ -9,29 +9,27 @@ class Pembayaran extends Model
 {
     use HasFactory;
     protected $table = 'pembayaran';
-
     protected $primaryKey = 'id_pembayaran';
 
 
     protected $fillable = [
-        'jenis_tindakan','biaya_periksa', 'biaya_rawat', 'total', 'created_at'
+        'jenis_tindakan','biaya_periksa', 'biaya_rawat', 'total', 'created_at',
     ];
 
     public static function getDataPembayaran()
     {
-    $pembayaran = Pembayaran::all();
+    $pembayarans = Pembayaran::all();
 
-    $pembayaran_filter = [];
+    $pembayarans_filter = [];
     $no = 1;
-    for ($i=0; $i < $pembayaran->count(); $i++){ 
-        $pembayaran_filter[$i]['no'] = $no++;
-        $pembayaran_filter[$i]['id_pembayaran'] = $pembayaran_filter[$i]->id_pembayaran;
-        $pembayaran_filter[$i]['jenis_tindakan'] = $pembayaran_filter[$i]->jenis_tindakan;
-        $pembayaran_filter[$i]['biaya_periksa'] = $pembayaran_filter[$i]->biaya_periksa;
-        $pembayaran_filter[$i]['biaya_rawat'] = $pembayaran_filter[$i]->biaya_rawat;
-        $pembayaran_filter[$i]['total'] = $pembayaran_filter[$i]->total;
-        $pembayaran_filter[$i]['created_at'] = $pembayaran_filter[$i]->created_at;
+    for ($i=0; $i < $pembayarans->count(); $i++){
+        $pembayarans_filter[$i]['no'] = $no++;
+        $pembayarans_filter[$i]['jenis_tindakan'] = $pembayarans[$i]->jenis_tindakan;
+        $pembayarans_filter[$i]['biaya_periksa'] = $pembayarans[$i]->biaya_periksa;
+        $pembayarans_filter[$i]['biaya_rawat'] = $pembayarans[$i]->biaya_rawat;
+        $pembayarans_filter[$i]['total'] = $pembayarans[$i]->total;
+        $pembayarans_filter[$i]['created_at'] = $pembayarans[$i]->created_at;
         }
-        return $pembayaran_filter;
+        return $pembayarans_filter;
     }
 }

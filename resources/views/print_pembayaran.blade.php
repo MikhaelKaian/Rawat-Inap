@@ -14,11 +14,13 @@
     <table id="table-data" class="table table-bordered">
     <thead>
                         <tr class="text-center">
-                            <th>ID PEMBAYARAN</th>
-                            <th>JENIS TINDAKAN</th>
-                            <th>JUMLAH PASIEN TINDAKAN</th>
-                            <th>JUMLAH PASIEN INAP</th>
-                            <th>TOTAL</th>
+                            <th>ID Pembayaran</th>
+                            <th>Jenis Tindakan</th>
+                            <th>Biaya Periksa</th>
+                            <th>Biaya Rawat </th>
+                            <th>Total </th>
+                            <th>Tanggal</th>
+
                         </tr>
                     <tbody>
                         @php
@@ -26,12 +28,12 @@
                         @endphp
                         @foreach ($pembayaran as $pembayarans)
                             <tr>
-                                <td>{{ $pembayaran->id_pembayaran }}</td>
-                                <td>{{ $pembayaran->jenis_tindakan}}</td>
-                                <td>{{ $pembayaran->biaya_periksa}}</td>
-                                <td>{{ $pembayaran->biaya_rawat}}</td>
-                                <td>{{ $pembayaran->total }}</td>
-                                
+                                <td>{{ $pembayarans->id_pembayaran }}</td>
+                                <td>{{ $pembayarans->jenis_tindakan}}</td>
+                                <td>{{ $pembayarans->biaya_periksa }}</td>
+                                <td>{{ $pembayarans->biaya_rawat }}</td>
+                                <td>{{ $pembayarans->total }}</td>
+                                <td>{{ $pembayarans->created_at != "" ? date("Y-m-d",strtotime($pembayarans->created_at )) : "-"}}</td>
                             </tr>
                          @endforeach
                     </tbody>
